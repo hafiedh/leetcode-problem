@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	x := []string{"florida", "flores", "flrid", "florf"}
-	fmt.Println(longestCommonPrefix(x))
+	x := "III"
+	fmt.Println(romanToInt(x))
 }
 
 func findDuplicateWords(input string) []string {
@@ -206,6 +206,38 @@ func intToRoman(num int) string {
 		for num >= integer[i] {
 			num -= integer[i]
 			result += roman[i]
+		}
+	}
+	return result
+}
+
+func romanToInt(s string) int {
+	var result int
+	roman := make(map[string]int)
+	roman["M"] = 1000
+	roman["CM"] = 900
+	roman["D"] = 500
+	roman["CD"] = 400
+	roman["C"] = 100
+	roman["XC"] = 90
+	roman["L"] = 50
+	roman["XL"] = 40
+	roman["X"] = 10
+	roman["IX"] = 9
+	roman["V"] = 5
+	roman["IV"] = 4
+	roman["I"] = 1
+	fmt.Println("Roman:", roman)
+	fmt.Println("INPUT:", s)
+	for i := 0; i < len(s); i++ {
+		if i+1 < len(s) {
+			fmt.Println("i:", i, "s[i:i+1]:", s[i:i+1], "s[i:i+2]:", s[i:i+2])
+		}
+		if i+1 < len(s) && roman[s[i:i+2]] > roman[s[i:i+1]] {
+			result += roman[s[i:i+2]]
+			i++
+		} else {
+			result += roman[s[i:i+1]]
 		}
 	}
 	return result
