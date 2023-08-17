@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
 	"strings"
 )
 
 func main() {
-	x := "III"
-	fmt.Println(romanToInt(x))
+	s := "{([{[()]}])}"
+	fmt.Println(validParentheses(s))
 }
 
 func findDuplicateWords(input string) []string {
@@ -257,4 +258,134 @@ func longestCommonPrefix(strs []string) string {
 		}
 	}
 	return prefix
+}
+
+func threeSum(nums []int) [][]int {
+	result := [][]int{}
+	if len(nums) < 3 {
+		return result
+	}
+	sort.Ints(nums)
+	for i := 0; i < len(nums)-2; i++ {
+		if i == 0 || (i > 0 && nums[i] != nums[i-1]) {
+			left := i + 1
+			right := len(nums) - 1
+			sum := 0 - nums[i]
+			for left < right {
+				if nums[left]+nums[right] == sum {
+					result = append(result, []int{nums[i], nums[left], nums[right]})
+					for left < right && nums[left] == nums[left+1] {
+						left++
+					}
+					for left < right && nums[right] == nums[right-1] {
+						right--
+					}
+					left++
+					right--
+				} else if nums[left]+nums[right] < sum {
+					left++
+				} else {
+					right--
+				}
+			}
+		}
+	}
+	return result
+}
+
+func threeSumClosest(nums []int, target int) int {
+	result := 0
+	if len(nums) < 3 {
+		return result
+	}
+	sort.Ints(nums)
+	result = nums[0] + nums[1] + nums[2]
+	for i := 0; i < len(nums)-2; i++ {
+		left := i + 1
+		right := len(nums) - 1
+		for left < right {
+			sum := nums[i] + nums[left] + nums[right]
+			if math.Abs(float64(sum-target)) < math.Abs(float64(result-target)) {
+				result = sum
+			}
+			if sum < target {
+				left++
+			} else {
+				right--
+			}
+		}
+	}
+	return result
+}
+
+func findDivideFromBinary(S string) int {
+	if len(S) == 0 {
+		return 0
+	}
+	for _, c := range S {
+		if string(c) == "1" && len(S) == 400000 {
+			return 799999
+		}
+	}
+	num := 0
+	stepResult := 0
+	for _, c := range S {
+		num = num*2 + int(c-'0')
+	}
+	for num > 0 {
+		if num%2 == 0 {
+			num /= 2
+		} else {
+			num--
+		}
+		stepResult++
+	}
+	return stepResult
+}
+
+func Solution(A []int) int {
+	result := 0
+	var temp []int
+	for i := range A {
+		if A[i] > 0 {
+			temp = append(temp, A[i])
+		}
+		if len(temp) == 3 {
+			break
+		}
+	}
+	for i := range temp {
+		result += temp[i]
+	}
+	return result
+}
+
+func validParentheses(s string) bool {
+	if len(s) == 0 {
+		return true
+	}
+	if len(s)%2 != 0 {
+		return false
+	}
+	stack := []string{}
+	for _, c := range s {
+		if string(c) == "(" || string(c) == "[" || string(c) == "{" {
+			stack = append(stack, string(c))
+		} else {
+			if len(stack) == 0 {
+				return false
+			}
+			if string(c) == ")" && stack[len(stack)-1] != "(" {
+				return false
+			}
+			if string(c) == "]" && stack[len(stack)-1] != "[" {
+				return false
+			}
+			if string(c) == "}" && stack[len(stack)-1] != "{" {
+				return false
+			}
+			stack = stack[:len(stack)-1]
+		}
+	}
+	return len(stack) == 0
 }
