@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	s := "{([{[()]}])}"
-	fmt.Println(validParentheses(s))
+	s := []int{3, 2, 6, 5, 0, 3}
+	fmt.Println(maxProfit(s))
 }
 
 func findDuplicateWords(input string) []string {
@@ -388,4 +388,19 @@ func validParentheses(s string) bool {
 		}
 	}
 	return len(stack) == 0
+}
+
+func maxProfit(prices []int) int {
+	if len(prices) == 0 {
+		return 0
+	}
+	minPrice, maxProfit := prices[0], 0
+	for _, price := range prices {
+		if price < minPrice {
+			minPrice = price
+		} else if price-minPrice > maxProfit {
+			maxProfit = price - minPrice
+		}
+	}
+	return maxProfit
 }
