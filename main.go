@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	s := []int{3, 2, 6, 5, 0, 3}
-	fmt.Println(maxProfit(s))
+	s := []int{4, 5, 6, 7, 0, 1, 2}
+	fmt.Println(search(s, 3))
 }
 
 func findDuplicateWords(input string) []string {
@@ -403,4 +403,45 @@ func maxProfit(prices []int) int {
 		}
 	}
 	return maxProfit
+}
+
+func rotatePivotIndex(nums []int, pivot int) []int {
+	if len(nums) == 0 {
+		return nums
+	}
+	for i := 0; i < pivot; i++ {
+		nums = append(nums, nums[i])
+	}
+	return nums[pivot:]
+}
+
+func search(num []int, target int) int {
+	result := -1
+	if len(num) == 0 {
+		return result
+	}
+
+	left := 0
+	right := len(num) - 1
+	for left <= right {
+		mid := left + (right-left)/2
+		if num[mid] == target {
+			return mid
+		}
+		if num[left] <= num[mid] {
+			if target >= num[left] && target < num[mid] {
+				right = mid - 1
+			} else {
+				left = mid + 1
+			}
+		} else if num[mid] <= num[right] {
+			if target > num[mid] && target <= num[right] {
+				left = mid + 1
+			} else {
+				right = mid - 1
+			}
+		}
+
+	}
+	return result
 }
