@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	s := []int{1, 2, 3, 4}
-	fmt.Println(containsDuplicate(s))
+	s := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	fmt.Println(removeDuplicates(s))
 }
 
 func findDuplicateWords(input string) []string {
@@ -471,4 +471,48 @@ func containsDuplicate(nums []int) bool {
 		m[num] = true
 	}
 	return false
+}
+
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	// approach 1
+	if len(nums1) == 0 || len(nums2) == 0 {
+		return
+	}
+	nums1 = nums1[:m]
+	nums2 = nums2[:n]
+	nums1 = append(nums1, nums2...)
+	sort.Ints(nums1)
+	fmt.Println(nums1)
+
+	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+
+	// approach 2
+	if len(nums1) == 0 || len(nums2) == 0 {
+		return
+	}
+	result := make([]int, m+n)
+	nums1 = nums1[:m]
+	nums2 = nums2[:n]
+	i, j, k := 0, 0, 0
+	for i < m && j < n {
+		if nums1[i] < nums2[j] && nums1[i] != 0 && nums2[j] != 0 {
+			result[k] = nums1[i]
+			i++
+		} else {
+			result[k] = nums2[j]
+			j++
+		}
+		k++
+	}
+	for i < m {
+		result[k] = nums1[i]
+		i++
+		k++
+	}
+	for j < n {
+		result[k] = nums2[j]
+		j++
+		k++
+	}
+	fmt.Println(result)
 }
