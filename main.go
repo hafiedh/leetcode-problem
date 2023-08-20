@@ -516,3 +516,36 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 	}
 	fmt.Println(result)
 }
+
+func removeDuplicates(nums []int) int {
+	// approach 1
+	if len(nums) == 0 {
+		return 0
+	}
+	i := 0
+	for j := 1; j < len(nums); j++ {
+		if nums[j] != nums[i] {
+			i++
+			nums[i] = nums[j]
+		}
+	}
+	fmt.Println(nums[:i+1])
+	return i + 1
+
+	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+
+	// approach 2
+	if len(nums) == 0 {
+		return 0
+	}
+	m := make(map[int]bool)
+	for _, num := range nums {
+		m[num] = true
+	}
+	result := []int{}
+	for key := range m {
+		result = append(result, key)
+		nums = result
+	}
+	return len(result)
+}
