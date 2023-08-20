@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	s := []int{4, 5, 6, 7, 0, 1, 2}
-	fmt.Println(search(s, 3))
+	s := []int{1, 2, 3, 4}
+	fmt.Println(containsDuplicate(s))
 }
 
 func findDuplicateWords(input string) []string {
@@ -444,4 +444,31 @@ func search(num []int, target int) int {
 
 	}
 	return result
+}
+
+func containsDuplicate(nums []int) bool {
+	// approach 1
+	// if len(nums) == 0 {
+	// 	return false
+	// }
+	// sort.Ints(nums)
+	// for i := 0; i < len(nums)-1; i++ {
+	// 	if nums[i+1] == nums[i] {
+	// 		return true
+	// 	}
+	// }
+	// return false
+
+	// approach 2
+	if len(nums) == 0 {
+		return false
+	}
+	m := make(map[int]bool)
+	for _, num := range nums {
+		if m[num] {
+			return true
+		}
+		m[num] = true
+	}
+	return false
 }
