@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	s := "anagram"
-	t := "nagaram"
-	fmt.Println(isAnagram(s, t))
+	s := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	t := 4
+	rotate(s, t)
 }
 
 func findDuplicateWords(input string) []string {
@@ -623,4 +623,29 @@ func isAnagram(s string, t string) bool {
 		}
 	}
 	return true
+}
+
+func rotate(nums []int, k int) {
+	if len(nums) == 0 {
+		return
+	}
+	k %= len(nums)
+	fmt.Println("k:", k)
+	fmt.Println("original nums:", nums)
+	reverse(nums, 0, len(nums)-1)
+	fmt.Println(nums)
+	reverse(nums, 0, k-1)
+	fmt.Println(nums)
+	reverse(nums, k, len(nums)-1)
+	fmt.Println(nums)
+}
+
+func reverse(nums []int, start, end int) {
+	for start < end {
+		fmt.Println("start:", start, "end:", end)
+		nums[start], nums[end] = nums[end], nums[start]
+		fmt.Println("nums in reverse: ", nums)
+		start++
+		end--
+	}
 }
