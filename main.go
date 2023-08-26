@@ -8,8 +8,9 @@ import (
 )
 
 func main() {
-	s := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
-	fmt.Println(removeDuplicates(s))
+	s := "anagram"
+	t := "nagaram"
+	fmt.Println(isAnagram(s, t))
 }
 
 func findDuplicateWords(input string) []string {
@@ -535,17 +536,91 @@ func removeDuplicates(nums []int) int {
 	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
 
 	// approach 2
-	if len(nums) == 0 {
-		return 0
+	// if len(nums) == 0 {
+	// 	return 0
+	// }
+	// m := make(map[int]bool)
+	// for _, num := range nums {
+	// 	m[num] = true
+	// }
+	// result := []int{}
+	// for key := range m {
+	// 	result = append(result, key)
+	// 	nums = result
+	// }
+	// return len(result)
+}
+
+func isPalindrome(s string) bool {
+	for i, j := 0, len(s)-1; i < j; {
+		if !isAlphanumeric(s[i]) {
+			i++
+			continue
+		}
+		if !isAlphanumeric(s[j]) {
+			j--
+			continue
+		}
+		if !isEqual(s[i], s[j]) {
+			return false
+		}
+		i++
+		j--
 	}
-	m := make(map[int]bool)
-	for _, num := range nums {
-		m[num] = true
+	return true
+}
+
+func isAlphanumeric(c byte) bool {
+	return (c >= '0' && c <= '9') ||
+		(c >= 'A' && c <= 'Z') ||
+		(c >= 'a' && c <= 'z')
+}
+
+func isEqual(a, b byte) bool {
+	if a >= 'A' && a <= 'Z' {
+		a += 'a' - 'A'
 	}
-	result := []int{}
-	for key := range m {
-		result = append(result, key)
-		nums = result
+	if b >= 'A' && b <= 'Z' {
+		b += 'a' - 'A'
 	}
-	return len(result)
+	return a == b
+}
+
+func isAnagram(s string, t string) bool {
+
+	// approach 1
+	// if len(s) != len(t) {
+	// 	return false
+	// }
+	// m := make(map[rune]int)
+	// for _, c := range s {
+	// 	m[c]++
+	// }
+	// for _, c := range t {
+	// 	m[c]--
+	// }
+	// for _, v := range m {
+	// 	if v != 0 {
+	// 		return false
+	// 	}
+	// }
+	// return true
+
+	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+
+	// approach 2
+	if len(s) != len(t) {
+		return false
+	}
+	m := make(map[rune]int)
+	for i, j := 0, 0; i < len(s) && j < len(t); i, j = i+1, j+1 {
+		m[rune(s[i])]++
+		m[rune(t[j])]--
+	}
+	for _, v := range m {
+		if v != 0 {
+			return false
+		}
+	}
+	return true
 }
