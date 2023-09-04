@@ -1,6 +1,9 @@
 package personal
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // i have array [1,2,3] then print 123,
 // i have array [8,9] then print 90,
@@ -36,4 +39,10 @@ func PlusOne(digits []int) []int {
 		digits = append([]int{1}, digits...)
 	}
 	return digits
+}
+
+func Check6MonthOrLater(startDate time.Time, targetDate time.Time) bool {
+	timeDiff := targetDate.Sub(startDate)
+	monthDiff := int(timeDiff.Hours() / 24 / 30)
+	return monthDiff >= 6
 }

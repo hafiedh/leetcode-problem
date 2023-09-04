@@ -5,12 +5,17 @@ import (
 	"math"
 	"sort"
 	"strings"
+	"time"
+
+	"hafiedh.com/leetcode/personal"
 )
 
 func main() {
-	s := []int{1, 2, 3, 4, 5, 6, 7, 8}
-	t := 4
-	rotate(s, t)
+	t1 := time.Now()
+	t2 := time.Date(time.Now().Year(), time.Now().Month()+5, time.Now().Day(), 0, 0, 0, 0, time.Now().Location())
+	fmt.Println(t1)
+	fmt.Println(t2)
+	fmt.Println(personal.Check6MonthOrLater(t1, t2))
 }
 
 func findDuplicateWords(input string) []string {
@@ -232,10 +237,8 @@ func romanToInt(s string) int {
 	fmt.Println("Roman:", roman)
 	fmt.Println("INPUT:", s)
 	for i := 0; i < len(s); i++ {
-		if i+1 < len(s) {
-			fmt.Println("i:", i, "s[i:i+1]:", s[i:i+1], "s[i:i+2]:", s[i:i+2])
-		}
 		if i+1 < len(s) && roman[s[i:i+2]] > roman[s[i:i+1]] {
+			fmt.Println("i:", i, "i+1:", i+1, "i+2:", i+2, "s[i:i+2]:", s[i:i+2], "s[i:i+1]:", s[i:i+1])
 			result += roman[s[i:i+2]]
 			i++
 		} else {
@@ -648,4 +651,27 @@ func reverse(nums []int, start, end int) {
 		start++
 		end--
 	}
+}
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	if list1 == nil {
+		return list2
+	}
+	if list2 == nil {
+		return list1
+	}
+	var result *ListNode
+	if list1.Val < list2.Val {
+		result = list1
+		result.Next = mergeTwoLists(list1.Next, list2)
+	} else {
+		result = list2
+		result.Next = mergeTwoLists(list1, list2.Next)
+	}
+	return result
 }
