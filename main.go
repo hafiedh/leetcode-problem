@@ -1,22 +1,17 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"math"
 	"sort"
 	"strings"
 
-	problem "hafiedh.com/leetcode/problem/easy"
+	easy "hafiedh.com/leetcode/problem/easy"
 )
 
 func main() {
-	nums := []int{-10, -3, 0, 5, 9}
-	jsonBytes, err := json.MarshalIndent(problem.SortedArrayToBST(nums), "", "  ")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("JSON:", string(jsonBytes))
+	input := 5
+	fmt.Println("Pascal Triangle : ", easy.PascalTriangle(input))
 }
 
 type Test []TestElement

@@ -55,3 +55,13 @@ func DeleteDuplicates2(head *ListNode) *ListNode {
 	}
 	return head
 }
+
+func HasPathSum(root *TreeNode, targetSum int) bool {
+	if root == nil {
+		return false
+	}
+	if root.Left == nil && root.Right == nil && targetSum == root.Val {
+		return true
+	}
+	return HasPathSum(root.Left, targetSum-root.Val) || HasPathSum(root.Right, targetSum-root.Val)
+}
