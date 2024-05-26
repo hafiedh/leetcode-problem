@@ -6,38 +6,81 @@ import (
 	"sort"
 	"strings"
 
-	easy "hafiedh.com/leetcode/problem/easy"
+	"hafiedh.com/leetcode/problem/medium"
 )
 
 func main() {
-	input := 5
-	fmt.Println("Pascal Triangle : ", easy.PascalTriangle(input))
+	m, n := 3, 7
+
+	fmt.Println(medium.UniquePath(m, n))
+
+	return
 }
 
-type Test []TestElement
+type Test struct {
+	A string
+	B string
+	C []string
+	E bool
+	F bool
+}
+
+type FactsheetBankStatementData struct {
+	ReportDate string `json:"date"`
+	Balance    int    `json:"balance"`
+	Credit     int    `json:"credit"`
+	Debet      int    `json:"debet"`
+}
+
+type FactsheetUnderlyingData struct {
+	Bouwheer      string `json:"bouwheer"`
+	InvoiceDate   string `json:"invoiceDate"`
+	InvoiceNumber string `json:"invoiceNumber"`
+	Amount        int    `json:"amount"`
+	DueDays       int    `json:"dueDays"`
+	TOP           int    `json:"top"`
+}
+
+func TestFunction(test ...Test) {
+	if test[0].E && test[0].F {
+		fmt.Println("Harusnya error")
+		return
+	}
+
+	if test[0].E {
+		fmt.Println("e true")
+	}
+	if test[0].F {
+		fmt.Println("f true")
+	}
+	fmt.Println("TestFunction")
+	fmt.Println(test[0].A)
+	fmt.Println(test[0].B)
+	fmt.Println(test[0].C)
+}
 
 type TestElement struct {
-	No                  int64     `json:"no"`
 	Fees                []TestFee `json:"fees"`
+	No                  int64     `json:"no"`
 	FinalAmount         int64     `json:"finalAmount"`
 	LateFeeAmount       int64     `json:"lateFeeAmount"`
 	PrincipalLoanAmount int64     `json:"principalLoanAmount"`
 }
 
 type TestFee struct {
-	Fees        []FeeFee `json:"fees"`
-	Amount      int64    `json:"amount"`
 	FeeCode     string   `json:"feeCode"`
 	FeeName     string   `json:"feeName"`
+	Fees        []FeeFee `json:"fees"`
+	Amount      int64    `json:"amount"`
 	InputAmount int64    `json:"inputAmount"`
 }
 
 type FeeFee struct {
-	Ratio                      int64   `json:"ratio"`
-	Amount                     int64   `json:"amount"`
+	TargetPartnerParameterCode *string `json:"targetPartnerParameterCode,omitempty"`
 	TargetCode                 string  `json:"targetCode"`
 	TargetName                 string  `json:"targetName"`
-	TargetPartnerParameterCode *string `json:"targetPartnerParameterCode,omitempty"`
+	Ratio                      int64   `json:"ratio"`
+	Amount                     int64   `json:"amount"`
 }
 
 func findDuplicateWords(input string) []string {
@@ -676,8 +719,8 @@ func reverse(nums []int, start, end int) {
 }
 
 type ListNode struct {
-	Val  int
 	Next *ListNode
+	Val  int
 }
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {

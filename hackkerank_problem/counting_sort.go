@@ -17,3 +17,20 @@ func CountingSort(arr []int32) []int32 {
 
 	return result
 }
+
+func CheckInMap(arr []int32) int32 {
+	result := make(map[int32]int32)
+	for _, val := range arr {
+		result[val]++
+	}
+
+	var max int32
+	for _, val := range result {
+		if val > max {
+			max = val
+		}
+	}
+
+	return max
+
+}

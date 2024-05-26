@@ -5,7 +5,6 @@ Person =
 | 2  | bob@example.com  |
 | 3  | john@example.com |
 
-Use Testcase
 Output
 | id | email            |
 | -- | ---------------- |
