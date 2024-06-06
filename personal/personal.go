@@ -71,8 +71,3 @@ func DecryptUrl(encryptedUrl string) (url string, err error) {
 	url = string(plaintext)
 	return
 }
-
-type Test struct {
-	Num  int
-	Test string
-}
