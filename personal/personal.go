@@ -71,3 +71,27 @@ func DecryptUrl(encryptedUrl string) (url string, err error) {
 	url = string(plaintext)
 	return
 }
+
+func MaxTransaction(transactions []int32) int32 {
+	if len(transactions) == 0 {
+		return 0
+	}
+	var maxTr, balance, indexFirst int32
+
+	for i, tr := range transactions {
+		if tr > 0 {
+			indexFirst = int32(i)
+			balance = tr
+			maxTr = 1
+			break
+		}
+	}
+
+	for i := indexFirst + 1; i < int32(len(transactions)); i++ {
+		if balance+transactions[i] >= 0 {
+			balance += transactions[i]
+			maxTr++
+		}
+	}
+	return maxTr
+}
