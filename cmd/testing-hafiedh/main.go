@@ -7,11 +7,15 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
+	hackkerankproblem "hafiedh.com/leetcode/hackkerank_problem"
 )
 
 func main() {
-}
+	input := [][]int32{{1, 4}, {2, 3}}
 
+	fmt.Println(hackkerankproblem.OrganizingContainers(input))
+
+}
 func Sort[T constraints.Ordered](arr []T) {
 	for i := 0; i < len(arr); i++ {
 		for j := i + 1; j < len(arr); j++ {

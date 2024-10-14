@@ -22,5 +22,8 @@ func combinationSum2Recursive(candidates []int, target int) [][]int {
 			}
 		}
 	}
+	// remove duplicate
+	result = utils.RemoveDuplicate2D(result)
+
 	return result
 }
