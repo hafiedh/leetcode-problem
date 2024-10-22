@@ -7,13 +7,15 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
-	hackkerankproblem "hafiedh.com/leetcode/hackkerank_problem"
+	"hafiedh.com/leetcode/problem/medium"
 )
 
 func main() {
-	input := [][]int32{{1, 4}, {2, 3}}
+	// Input: candidates = [10,1,2,7,6,1,5], target = 8
+	candidates := []int{1, 2, 5}
+	target := 9
 
-	fmt.Println(hackkerankproblem.OrganizingContainers(input))
+	fmt.Println("Coin Change :", medium.CoinChange(candidates, target))
 
 }
 func Sort[T constraints.Ordered](arr []T) {

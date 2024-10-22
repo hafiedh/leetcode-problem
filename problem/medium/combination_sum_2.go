@@ -1,18 +1,23 @@
 package medium
 
-import "hafiedh.com/leetcode/utils"
+import (
+	"sort"
+
+	"hafiedh.com/leetcode/utils"
+)
 
 func CombinationSum2(candidates []int, target int) [][]int {
-	sortedSlice := utils.QuickSort(candidates)
-	return combinationSum2Recursive(sortedSlice, target)
+	sort.Ints(candidates)
+	return combinationSum2Recursive(candidates, target)
 }
 
 func combinationSum2Recursive(candidates []int, target int) [][]int {
 	var result [][]int
-	for i, candidate := range candidates {
+	for i := 0; i < len(candidates); i++ {
 		if i > 0 && candidates[i] == candidates[i-1] {
 			continue
 		}
+		candidate := candidates[i]
 		if target == candidate {
 			result = append(result, []int{candidate})
 		} else if target > candidate {
@@ -22,7 +27,6 @@ func combinationSum2Recursive(candidates []int, target int) [][]int {
 			}
 		}
 	}
-	// remove duplicate
 	result = utils.RemoveDuplicate2D(result)
 
 	return result
