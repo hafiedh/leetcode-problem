@@ -95,3 +95,47 @@ func MaxTransaction(transactions []int32) int32 {
 	}
 	return maxTr
 }
+
+func FindFistNonRepetableCharacter(s string) string {
+	m := make(map[rune]int)
+	for _, r := range s {
+		m[r]++
+	}
+	for _, r := range s {
+		if m[r] == 1 {
+			return string(r)
+		}
+	}
+	return "_"
+}
+
+// example input = [1,2,3,2,1] remove pair of same number
+// output = [2,1] first how many pair removed, second is the remaining number
+
+//example input = []int{2, 1, 3, 2, 1, 2, 2, 3, 3}
+//output = []int{4,1} first how many pair removed, second is the remaining number
+
+func CountPairAndCheckRemaining(arr []int) []int {
+	m := make(map[int]int)
+	var count, remaning int
+	for _, val := range arr {
+		m[val]++
+		if m[val]%2 == 0 {
+			count++
+			remaning--
+		} else {
+			remaning++
+		}
+	}
+
+	return []int{count, remaning}
+}
+
+func ReverseNumber(n int) int {
+	var rev int
+	for n > 0 {
+		rev = rev*10 + n%10
+		n /= 10
+	}
+	return rev
+}

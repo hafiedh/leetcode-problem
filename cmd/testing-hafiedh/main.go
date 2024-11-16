@@ -7,15 +7,13 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
-	"hafiedh.com/leetcode/problem/medium"
+	problem "hafiedh.com/leetcode/problem/easy"
 )
 
 func main() {
-	// Input: candidates = [10,1,2,7,6,1,5], target = 8
-	candidates := []int{1, 2, 5}
-	target := 9
-
-	fmt.Println("Coin Change :", medium.CoinChange(candidates, target))
+	pattern := "aaaa"
+	s := "dog cat cat dog"
+	fmt.Println("Word pattern :", problem.WordPattern(pattern, s))
 
 }
 func Sort[T constraints.Ordered](arr []T) {
