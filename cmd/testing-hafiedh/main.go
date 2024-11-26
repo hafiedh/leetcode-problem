@@ -7,13 +7,14 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
-	problem "hafiedh.com/leetcode/problem/easy"
+	easy "hafiedh.com/leetcode/problem/easy"
 )
 
 func main() {
-	pattern := "aaaa"
-	s := "dog cat cat dog"
-	fmt.Println("Word pattern :", problem.WordPattern(pattern, s))
+	nums := []int{1, 2, 5, 2, 3}
+	target := 3
+
+	fmt.Println("RESULT", easy.TargetIndices(nums, target))
 
 }
 func Sort[T constraints.Ordered](arr []T) {

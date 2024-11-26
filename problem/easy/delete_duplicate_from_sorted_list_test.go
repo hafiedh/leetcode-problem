@@ -1,4 +1,4 @@
-package problem
+package easy
 
 import (
 	"io/ioutil"

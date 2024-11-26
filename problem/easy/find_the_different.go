@@ -1,4 +1,4 @@
-package problem
+package easy
 
 // You are given two strings s and t.
 

@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func JumpingOnClouds(c []int32, k int32) int32 {
 	var energy int32 = 100

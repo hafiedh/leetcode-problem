@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func MissingNumber(nums []int) int {
 	var result int

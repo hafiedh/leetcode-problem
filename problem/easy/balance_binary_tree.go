@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func IsBalanced(root *TreeNode) bool {
 	if root == nil {

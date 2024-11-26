@@ -1,4 +1,4 @@
-package problem
+package easy
 
 import (
 	"encoding/json"
@@ -10,7 +10,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// problem 1
+// easy 1
 func DeleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
@@ -26,7 +26,7 @@ func DeleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 
-// problem 2
+// easy 2
 func DeleteDuplicates2(head *ListNode) *ListNode {
 	for head != nil && head.Next != nil && head.Val == head.Next.Val {
 		for head != nil && head.Next != nil && head.Val == head.Next.Val {

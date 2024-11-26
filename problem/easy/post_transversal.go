@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func PostorderTraversal(root *TreeNode) []int {
 	if root == nil {

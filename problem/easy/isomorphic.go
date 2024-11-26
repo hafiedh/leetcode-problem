@@ -1,4 +1,4 @@
-package problem
+package easy
 
 // Example 1:
 

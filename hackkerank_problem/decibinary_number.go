@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func DecibinaryNumbers(x int64) int64 {
 	for i := int64(0); i < x; i++ {

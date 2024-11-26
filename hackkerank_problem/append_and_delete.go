@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func AppendAndDelete(s string, t string, k int32) string {
 

@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func PascalTriangle(numRows int) [][]int {
 	if numRows == 1 {

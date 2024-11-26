@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func GetMaxBookCombination(listPrices []int32, money int32) int32 {
 	// example:

@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func ChocolateFeast(n int32, c int32, m int32) int32 {
 	// Write your code here

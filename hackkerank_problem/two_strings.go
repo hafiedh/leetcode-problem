@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func TwoStrings(s1 string, s2 string) string {
 	m := make(map[rune]bool)

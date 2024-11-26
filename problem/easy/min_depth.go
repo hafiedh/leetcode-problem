@@ -1,4 +1,4 @@
-package problem
+package easy
 
 /**
  * Definition for a binary tree node.

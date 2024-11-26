@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func FindDuplicate(nums []int) int {
 	visited := make(map[int]bool)

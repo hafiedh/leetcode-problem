@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func DesignerPdfViewer(h []int32, word string) int32 {
 	var max int32

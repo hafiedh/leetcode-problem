@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func InorderTraversal(root *TreeNode) []int {
 	var res []int

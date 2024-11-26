@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func taumBday(b int32, w int32, bc int32, wc int32, z int32) int64 {
 	var result int64
