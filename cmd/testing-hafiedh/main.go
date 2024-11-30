@@ -7,14 +7,13 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
-	easy "hafiedh.com/leetcode/problem/easy"
+	"hafiedh.com/leetcode/problem/medium"
 )
 
 func main() {
-	nums := []int{1, 2, 5, 2, 3}
-	target := 3
+	nums := []int{-1, 0, 1, 2, -1, -4}
 
-	fmt.Println("RESULT", easy.TargetIndices(nums, target))
+	fmt.Println("RESULT", medium.ThreeSum(nums))
 
 }
 func Sort[T constraints.Ordered](arr []T) {
