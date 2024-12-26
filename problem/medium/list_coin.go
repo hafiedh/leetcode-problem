@@ -32,3 +32,42 @@ func CoinChange(coins []int, amount int) int {
 
 	return dp[amount]
 }
+
+func CoinChangeRecursive(coins []int, amount int) int {
+	if amount == 0 {
+		return 0
+	}
+
+	return coinChangeRecursive(coins, amount, make(map[int]int))
+}
+
+func coinChangeRecursive(coins []int, amount int, memo map[int]int) int {
+	if amount == 0 {
+		return 0
+	}
+
+	if amount < 0 {
+		return -1
+	}
+
+	if v, ok := memo[amount]; ok {
+		return v
+	}
+
+	minCoins := amount + 1
+	for _, coin := range coins {
+		res := coinChangeRecursive(coins, amount-coin, memo)
+		if res == -1 {
+			continue
+		}
+		minCoins = min(minCoins, res+1)
+	}
+
+	if minCoins == amount+1 {
+		memo[amount] = -1
+		return -1
+	}
+
+	memo[amount] = minCoins
+	return minCoins
+}
