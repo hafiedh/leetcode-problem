@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func TotalMoney(n int) int {
 

@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func MinimalDistance(a []int32) int32 {
 	var result int32 = -1

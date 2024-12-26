@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 // let's say recipe = "MOCHI" and inredients = "IHCOMIHCOM"
 // result = 2 (because there are only 2 mochi in inredients)

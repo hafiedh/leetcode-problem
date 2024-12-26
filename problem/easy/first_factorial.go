@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func TailFact(n int) int {
 	return factT(n-1, n)

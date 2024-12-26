@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func AddBinary(a string, b string) string {
 	aArr := []rune(a)

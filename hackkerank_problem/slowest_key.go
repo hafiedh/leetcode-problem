@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func SlowestKey(keytimes [][]int32) string {
 	// Write your code here

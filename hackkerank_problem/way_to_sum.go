@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func Ways(total, k int32) int32 {
 	ways := make([]int, total+1)

@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func containsNearbyDuplicate(nums []int, k int) bool {
 	visited := make(map[int]int)

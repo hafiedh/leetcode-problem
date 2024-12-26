@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 import "sort"
 

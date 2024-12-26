@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func CountCharacters(words []string, chars string) int {
 	charCount := make(map[rune]int)

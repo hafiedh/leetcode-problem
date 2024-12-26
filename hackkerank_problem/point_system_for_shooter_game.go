@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 // Point bracket
 // Bracket total kill 10 point multiplier x1

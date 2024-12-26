@@ -1,4 +1,4 @@
-package problem
+package easy
 
 func GenerateParenthesis(n int) []string {
 	if n == 0 {

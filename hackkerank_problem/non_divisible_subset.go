@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func NonDivisibleSubset(k int32, s []int32) int32 {
 	var count int32 = 0

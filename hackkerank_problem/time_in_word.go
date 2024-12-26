@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func TimeInWords(h int32, m int32) string {
 	var result string

@@ -1,4 +1,4 @@
-package hackkerankproblem
+package hackkerankeasy
 
 func RepetedString(s string, n int64) int64 {
 	if len(s) == 1 && s == "a" {
