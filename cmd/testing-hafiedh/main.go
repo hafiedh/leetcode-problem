@@ -7,15 +7,17 @@ import (
 	"strings"
 
 	"golang.org/x/exp/constraints"
-	"hafiedh.com/leetcode/problem/medium"
+	"hafiedh.com/leetcode/personal"
 )
 
 func main() {
-	nums := []int{5, 7, 7, 8, 8, 9, 10}
-	target := 8
+	input := ""
+	words := []string{"a", "bb", "acd", "ace"}
 
-	fmt.Println(medium.SearchRange(nums, target))
+	result := personal.NumberOfSubsequences(input, words)
+	fmt.Println("Number of subsequences:", result)
 }
+
 func Sort[T constraints.Ordered](arr []T) {
 	for i := 0; i < len(arr); i++ {
 		for j := i + 1; j < len(arr); j++ {
@@ -215,8 +217,10 @@ func intToRoman(num int) string {
 	var roman []string
 	roman = append(roman, "M", "CM", "D", "CD", "C", "XC", "L",
 		"XL", "X", "IX", "V", "IV", "I")
-	integer := []int{1000, 900, 500, 400, 100, 90, 50,
-		40, 10, 9, 5, 4, 1}
+	integer := []int{
+		1000, 900, 500, 400, 100, 90, 50,
+		40, 10, 9, 5, 4, 1,
+	}
 	for i := 0; i < len(integer); i++ {
 		for num >= integer[i] {
 			num -= integer[i]
@@ -598,7 +602,6 @@ func isEqual(a, b byte) bool {
 }
 
 func isAnagram(s string, t string) bool {
-
 	// approach 1
 	// if len(s) != len(t) {
 	// 	return false
